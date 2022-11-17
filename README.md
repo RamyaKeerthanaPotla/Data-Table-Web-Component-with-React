@@ -67,8 +67,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-#resoursces
-[https://www.raymondcamden.com/2022/05/23/building-table-sorting-and-pagination-in-a-web-component]
-[https://developer.mozilla.org/en-US/docs/Web/Web_Components]
+#resources
+ [https://www.raymondcamden.com/2022/05/23/building-table-sorting-and-pagination-in-a-web-component]
+ [https://developer.mozilla.org/en-US/docs/Web/Web_Components]
+ 
+ #when integrating the web component with react, we need to explicitly get the attrbutes in the web component that are passed. Else there high chnaces of skipping the passed attributes.
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
