@@ -6,7 +6,7 @@ function App() {
     <div>
       <data-table
                 src="https://jsonplaceholder.typicode.com/users"
-                cols="id,name,username,email,address,phone"
+                cols="id,name,username,email,phone"
         ></data-table>
     </div>
   );

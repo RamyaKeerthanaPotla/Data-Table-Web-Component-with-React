@@ -65,8 +65,6 @@ class DataTable extends HTMLElement {
     }
   
     async load() {
-      console.log('load', this.src);
-      // error handling needs to be done :|
       let result = await fetch(this.src);
       this.data = await result.json();
       this.data && this.render();
@@ -83,10 +81,7 @@ class DataTable extends HTMLElement {
     }
   
     render() {
-      console.log(this.data)
       if(!this.cols) this.cols = Object.keys(this.data[0]);
-  
-     
         this.renderHeader();
         this.renderBody();
     }
@@ -112,8 +107,8 @@ class DataTable extends HTMLElement {
   
     renderHeader() {
       let header = '<tr>';
-      this.cols.forEach(col => {
-        header += `<th data-sort="${col}">${col} <img data-sort="${col}" src='./sortIcon.png' style="height:16px;width:16px"/></th>`;
+      this.cols.map(col => {
+        header += `<th data-sort="${col}">${col} <img data-sort="${col}" src="./sortIcon.png" style="height:16px;width:16px"/></th>`;
       });
       let thead = this.shadowRoot?.querySelector('thead');
       thead.innerHTML = header;
@@ -136,13 +131,16 @@ class DataTable extends HTMLElement {
       this.renderBody();  
     }
   
-    static get observedAttributes() { return ['src']; }
+    static get observedAttributes() { return ['src', 'cols']; }
   
     attributeChangedCallback(name, oldValue, newValue) {
       // even though we only listen to src, be sure
       if(name === 'src') {
         this.src = newValue;
         this.load();
+      }
+      if(name === 'cols') {
+        this.cols = newValue.split(',')
       }
     }
   }
